@@ -1,0 +1,19 @@
+{
+  "name": "aws-try",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serverless-http": "^2.5.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^6.4.0"
+  },
+  "scripts": {
+    "dev": "sls offline start --port 4500",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
