@@ -23,6 +23,10 @@ module.exports.submit = (event, context, callback) => {
     .then(res => {
       callback(null, {
         statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
         body: JSON.stringify({
           message: `Sucessfully submitted candidate with email ${email}`,
           candidateId: res.id
@@ -33,6 +37,10 @@ module.exports.submit = (event, context, callback) => {
       console.log(err);
       callback(null, {
         statusCode: 500,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
         body: JSON.stringify({
           message: `Unable to submit candidate with email ${email}`
         })
@@ -79,6 +87,10 @@ module.exports.list = (event, context, callback) => {
             console.log("Scan succeeded.");
             return callback(null, {
                 statusCode: 200,
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                  'Access-Control-Allow-Credentials': true,
+                },
                 body: JSON.stringify({
                     candidates: data.Items
                 })
@@ -101,6 +113,10 @@ module.exports.get = (event, context, callback) => {
     .then(result => {
       const response = {
         statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
         body: JSON.stringify(result.Item),
       };
       callback(null, response);
